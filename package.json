@@ -8,6 +8,7 @@
     "build": "next build",
     "start": "next start -p 3001",
     "typecheck": "tsc --noEmit",
+    "test:comments": "node --test tests/comments.test.cjs",
     "check": "npm run typecheck && npm run build"
   },
   "dependencies": {

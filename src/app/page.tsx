@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
-import { MessageSquare, Share2, ThumbsUp, BookOpen, Pencil, Cpu } from "lucide-react";
+import { MessageSquare, Share2, BookOpen, Pencil, Cpu } from "lucide-react";
+import Comments from "@/components/Comments";
 import InteractiveBookStreetmap from "@/components/InteractiveBookStreetmap";
 
 // ─── Fade-in-on-scroll hook ───────────────────────────────────────────
@@ -327,130 +328,6 @@ function BackToTop() {
         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 15l7-7 7 7" />
       </svg>
     </button>
-  );
-}
-
-// ─── Comments ───────────────────────────────────────────────────────────
-const defaultComments = [
-  {
-    id: 1,
-    name: "Trần Minh Tâm",
-    avatar: "T",
-    time: "1 giờ trước",
-    text: "Đọc bài này thấy ấm lòng quá! Những người nghệ sĩ như ông Phú mới thực sự là \"hồn\" của đô thị.",
-    likes: 47,
-  },
-  {
-    id: 2,
-    name: "Lê Hoàng Yến",
-    avatar: "Y",
-    time: "2 giờ trước",
-    text: "10 phút cho một tác phẩm thủ công đầy cảm xúc, trong khi AI mất 2 giây mà vẫn vô hồn. Thật sự không thể so sánh được.",
-    likes: 31,
-  },
-];
-
-function Comments() {
-  const [items, setItems] = useState(defaultComments);
-  const [text, setText] = useState("");
-  const [name, setName] = useState("");
-  const [likedIds, setLikedIds] = useState<number[]>([]);
-
-  const submit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!text.trim()) return;
-    setItems([
-      {
-        id: Date.now(),
-        name: name.trim() || "Bạn đọc",
-        avatar: (name.trim() || "B")[0].toUpperCase(),
-        time: "Vừa xong",
-        text: text.trim(),
-        likes: 0,
-      },
-      ...items,
-    ]);
-    setText("");
-    setName("");
-  };
-
-  const like = (id: number) => {
-    const isLiked = likedIds.includes(id);
-    setLikedIds(isLiked ? likedIds.filter((x) => x !== id) : [...likedIds, id]);
-    setItems(
-      items.map((c) =>
-        c.id === id ? { ...c, likes: c.likes + (isLiked ? -1 : 1) } : c
-      )
-    );
-  };
-
-  return (
-    <section id="binh-luan" className="max-w-[680px] mx-auto px-4 sm:px-0 my-14">
-      <div className="bg-white rounded-3xl shadow-sm border border-stone-200 p-5 sm:p-8">
-        <div className="flex items-center gap-2 mb-6 border-b border-stone-100 pb-4">
-          <MessageSquare className="w-5 h-5 text-[#A9324E]" />
-          <h3 className="font-serif text-lg sm:text-xl font-bold text-stone-900">Ý kiến bạn đọc</h3>
-          <span className="text-xs font-semibold text-[#A9324E] bg-[#A9324E]/10 px-2 py-0.5 rounded-full ml-1">
-            {items.length}
-          </span>
-        </div>
-
-        <form onSubmit={submit} className="mb-8 space-y-3">
-          <textarea
-            rows={3}
-            value={text}
-            onChange={(e) => setText(e.target.value)}
-            placeholder="Chia sẻ cảm nhận của bạn về bài viết này..."
-            className="w-full p-3.5 sm:p-4 text-sm bg-stone-50 border border-stone-200 rounded-2xl focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#A9324E]/40 resize-none transition text-stone-800 placeholder:text-stone-400"
-          />
-          <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-            <input
-              type="text"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="Tên của bạn (tùy chọn)"
-              className="w-full sm:w-auto flex-1 px-3.5 py-2 text-xs bg-stone-50 border border-stone-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#A9324E] text-stone-800"
-            />
-            <button
-              type="submit"
-              disabled={!text.trim()}
-              className="w-full sm:w-auto px-6 py-2.5 bg-[#A9324E] hover:bg-[#8a1f3c] disabled:opacity-40 text-white text-xs font-semibold rounded-xl transition shadow-sm cursor-pointer touch-manipulation"
-            >
-              Gửi bình luận
-            </button>
-          </div>
-        </form>
-
-        <div className="space-y-6">
-          {items.map((c) => {
-            const liked = likedIds.includes(c.id);
-            return (
-              <div key={c.id} className="flex gap-3.5">
-                <div className="w-9 h-9 rounded-full bg-[#FAF2DE] border border-[#e0d0b0] text-[#A9324E] font-serif font-bold flex items-center justify-center flex-shrink-0 text-sm">
-                  {c.avatar}
-                </div>
-                <div className="flex-1">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="font-semibold text-xs text-stone-900">{c.name}</span>
-                    <span className="text-[10px] text-stone-400">· {c.time}</span>
-                  </div>
-                  <p className="text-sm text-stone-700 leading-relaxed">{c.text}</p>
-                  <button
-                    onClick={() => like(c.id)}
-                    className={`flex items-center gap-1.5 text-xs mt-2 transition cursor-pointer ${
-                      liked ? "text-[#A9324E]" : "text-stone-500 hover:text-stone-800"
-                    }`}
-                  >
-                    <ThumbsUp className={`w-3.5 h-3.5 ${liked ? "fill-[#A9324E]" : ""}`} />
-                    <span>{c.likes > 0 ? c.likes : "Thích"}</span>
-                  </button>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-    </section>
   );
 }
 

@@ -16,6 +16,9 @@ dist/
 .env.test.local
 .env.production.local
 
+# Local Google comments setup (may contain connection secrets)
+.comments-setup/
+
 # Debug
 npm-debug.log*
 yarn-debug.log*

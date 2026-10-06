@@ -13,7 +13,7 @@
 - **Phong cách Báo chí Scrollytelling:** Tông màu hoài niệm `#FAF2DE`, chữ Serif Lora & Sans-serif Be Vietnam Pro chuẩn typographic tiếng Việt, văn bản căn đều hai bên (`text-justify`).
 - **Bản đồ isometric tương tác 144m Đường Sách:** Tích hợp chế độ Auto Tour tự động khám phá 6 điểm mốc văn hóa, phóng to thu nhỏ (Zoom In/Out), kéo thả chuột & vuốt chạm cảm ứng (Touch Drag & Pan) trên thiết bị di động.
 - **Tối ưu Mobile-First:** Responsive 100%, không tràn lề ngang, trải nghiệm mượt mà trên iPhone/Android.
-- **Hệ thống phản hồi bạn đọc:** Khu vực bình luận trực quan với tính năng thả tim cảm xúc.
+- **Hệ thống phản hồi bạn đọc:** Bình luận và lượt thích lưu trong Google Sheets, duyệt bình luận trước khi hiển thị. Cần cấu hình Apps Script.
 
 ---
 
@@ -54,6 +54,8 @@ npm install --legacy-peer-deps
 npm run dev
 ```
 Mở trình duyệt tại [http://localhost:3001](http://localhost:3001).
+
+**Bật bình luận thật:** làm theo [hướng dẫn kết nối Google Sheets](docs/google-sheet-comments.md). Script sẵn có tại [google-apps-script/Code.gs](google-apps-script/Code.gs); cấu hình mẫu ở [.env.example](.env.example).
 
 3. **Kiểm tra TypeScript & Build Production:**
 ```bash
