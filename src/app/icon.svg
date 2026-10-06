@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#BA3353" />
+      <stop offset="100%" stop-color="#8A1E35" />
+    </linearGradient>
+  </defs>
+  <!-- Background Badge -->
+  <rect x="2" y="2" width="60" height="60" rx="16" fill="url(#bgGrad)" stroke="#FAF2DE" stroke-width="2"/>
+  
+  <!-- Stylized Pencil / Charcoal Pen -->
+  <path d="M43 11 L51 19 L26 44 L16 46 L18 36 Z" fill="#FAF2DE" />
+  <path d="M43 11 L47 7 C48.5 5.5 51 5.5 52.5 7 L55 9.5 C56.5 11 56.5 13.5 55 15 L51 19 Z" fill="#E8C36A" />
+  <path d="M16 46 L18 36 L26 44 Z" fill="#521321" />
+  <polygon points="16,46 18,42 20,44" fill="#1C1917" />
+  
+  <!-- Sketch wave stroke underneath -->
+  <path d="M12 53 C22 49 32 55 42 50 C48 47 52 46 54 44" fill="none" stroke="#E8C36A" stroke-width="3.5" stroke-linecap="round"/>
+</svg>
