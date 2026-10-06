@@ -467,15 +467,15 @@ export default function InteractiveBookStreetmap() {
                     className="w-full h-full object-contain"
                   />
                 </div>
-                <figcaption className="mt-1 text-[9px] sm:text-[10px] leading-snug text-stone-600">
+                <figcaption className="sr-only">
                   {activeSpot.photoCaption}
                   {activeSpot.photoSource && (
-                    <a href={activeSpot.photoSource} target="_blank" rel="noopener noreferrer" className="block mt-0.5 underline underline-offset-2 hover:text-[#A9324E]">
+                    <a href={activeSpot.photoSource} tabIndex={-1} target="_blank" rel="noopener noreferrer" className="block mt-0.5 underline underline-offset-2 hover:text-[#A9324E]">
                       {activeSpot.photoCredit}
                     </a>
                   )}
                   {activeSpot.photoLicense && (
-                    <a href={activeSpot.photoLicense.url} target="_blank" rel="noopener noreferrer" className="block underline underline-offset-2 hover:text-[#A9324E]">
+                    <a href={activeSpot.photoLicense.url} tabIndex={-1} target="_blank" rel="noopener noreferrer" className="block underline underline-offset-2 hover:text-[#A9324E]">
                       {activeSpot.photoLicense.label} · ảnh thu nhỏ
                     </a>
                   )}

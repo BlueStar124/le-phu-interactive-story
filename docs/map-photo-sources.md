@@ -13,4 +13,4 @@ Cập nhật ngày 06/10/2026. Các ảnh được lưu trong `public/assets/duo
 
 Ảnh tại điểm Hai Bà Trưng minh họa **không gian đi bộ của Đường Sách**, không được chú thích là ảnh chụp chính cổng phía Đông. Ảnh xác minh được của giao lộ Nguyễn Văn Bình – Hai Bà Trưng trên Commons là ảnh năm 2015, trước khi Đường Sách mở cửa, nên không dùng để mô tả cổng hiện tại.
 
-Liên kết nguồn và giấy phép CC của từng ảnh được hiển thị ngay dưới ô ảnh trong bản đồ. Hai bản WebP từ Commons giữ giấy phép tương ứng của ảnh gốc; thay đổi duy nhất là kích thước và định dạng. Các ảnh từ báo/trang du lịch không được gán giấy phép CC.
+Các ô ảnh trong bản đồ chỉ hiển thị ảnh, không hiện chữ chú thích hoặc nguồn bên dưới. Thông tin nguồn và giấy phép vẫn được giữ cho trình đọc màn hình và trong tài liệu này. Hai bản WebP từ Commons giữ giấy phép tương ứng của ảnh gốc; thay đổi duy nhất là kích thước và định dạng. Các ảnh từ báo/trang du lịch không được gán giấy phép CC.
