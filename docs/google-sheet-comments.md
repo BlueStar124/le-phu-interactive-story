@@ -1,6 +1,6 @@
 # Kết nối bình luận với Google Sheets
 
-Web đã có API `/api/comments` và giao diện gửi/đọc bình luận thật. Cần cấu hình tài khoản Google và hai biến môi trường dưới đây để bật kết nối.
+Web đã có API `/api/comments` và giao diện gửi/đọc bình luận thật. Kết nối Google Sheets đã được cấu hình cho cả môi trường cục bộ và website Production trên Vercel.
 
 ## Sheet đã tạo cho dự án
 
@@ -18,7 +18,15 @@ Web cục bộ đã chạy tại [http://localhost:3001/#binh-luan](http://local
 - Yêu cầu tới Apps Script với khóa sai bị từ chối (`UNAUTHORIZED`).
 - Dòng thử ở **Comments!A2:F2** đã đổi sang `rejected` để ẩn khỏi web; tab **Likes** không còn lượt thích thử.
 
-Sáu kiểm thử mã dùng mô phỏng Apps Script, kiểm tra TypeScript và build production cũng đã thành công. Khi đưa web lên hosting, thêm hai biến môi trường như mục 4 và triển khai lại. Phần cấu hình này đã hoàn tất cho dự án chạy cục bộ.
+Sáu kiểm thử mã dùng mô phỏng Apps Script, kiểm tra TypeScript và build production cũng đã thành công.
+
+## Website Production
+
+[Mở website và phần bình luận](https://le-phu-interactive-story.vercel.app/#binh-luan). Dự án Vercel **le-phu-interactive-story** liên kết với repository **BlueStar124/le-phu-interactive-story**, tự triển khai khi push nhánh `main`. Bản mã bình luận `b683f25` đã triển khai thành công ngày 06/10/2026.
+
+Hai biến `GOOGLE_COMMENTS_SCRIPT_URL` và `GOOGLE_COMMENTS_SECRET` đã được lưu dưới dạng **Secret** trong môi trường **Production** của Vercel. Khóa vẫn chỉ dùng phía máy chủ, không nằm trong GitHub hay mã gửi xuống trình duyệt.
+
+Đã thử gửi bình luận trực tiếp trên website công khai, kiểm tra dòng `pending` trong Sheet, duyệt thành `approved` và kiểm tra lưu lượt thích sau khi tải lại trang. Dòng thử Production ở **Comments!A3:F3** được chuyển sang `rejected` sau kiểm thử và lượt thích thử được bỏ. Nếu Google phản hồi chậm hoặc báo lỗi tạm thời, bấm **Tải lại bình luận** để thử lại.
 
 ## 1. Tạo Google Sheet
 
