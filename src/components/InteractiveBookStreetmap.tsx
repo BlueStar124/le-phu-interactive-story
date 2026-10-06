@@ -24,7 +24,11 @@ export interface MapSpot {
   y: number; // percentage (0 - 100)
   isHighlight?: boolean;
   photo?: string;
+  photoAlt?: string;
   photoCaption?: string;
+  photoCredit?: string;
+  photoSource?: string;
+  photoLicense?: { label: string; url: string };
 }
 
 const mapSpots: MapSpot[] = [
@@ -37,8 +41,11 @@ const mapSpots: MapSpot[] = [
       "Nằm kề bên Nhà thờ Đức Bà cổ kính và Công trường Công Xã Paris. Đây là cổng chính đón dòng du khách thập phương và bạn bè quốc tế ghé thăm Đường Sách mỗi ngày.",
     x: 16,
     y: 33,
-    photo: "/assets/hoa-si/image1.png",
-    photoCaption: "Toàn cảnh lối vào Đường Sách từ hướng Công Xã Paris",
+    photo: "/assets/duong-sach/cong-duong-sach.webp",
+    photoAlt: "Cổng chào màu xanh của Đường Sách TP.HCM cạnh Bưu điện Trung tâm",
+    photoCaption: "Cổng chào Đường Sách phía Công Xã Paris",
+    photoCredit: "Ảnh: Lao Động / Asia Transport",
+    photoSource: "https://www.asiatransport.net/post/duong-sach",
   },
   {
     id: 2,
@@ -49,8 +56,12 @@ const mapSpots: MapSpot[] = [
       "Tòa nhà cổ điển phong cách Gothic do Pháp xây dựng cuối thế kỷ 19, tạo nên một bối cảnh kiến trúc lãng mạn và cổ kính ngay đầu tuyến phố sách.",
     x: 32,
     y: 22,
-    photo: "/assets/hoa-si/image1.png",
-    photoCaption: "Bưu điện Trung tâm nhìn từ khuôn viên Đường Sách",
+    photo: "/assets/duong-sach/buu-dien-trung-tam.webp",
+    photoAlt: "Mặt tiền màu vàng và đồng hồ của Bưu điện Trung tâm Sài Gòn",
+    photoCaption: "Mặt tiền Bưu điện Trung tâm Sài Gòn",
+    photoCredit: "Ảnh: Yesvn123 / Wikimedia Commons",
+    photoSource: "https://commons.wikimedia.org/wiki/File:Saigon_Central_Post_Office_2022.jpg",
+    photoLicense: { label: "CC BY-SA 4.0", url: "https://creativecommons.org/licenses/by-sa/4.0/" },
   },
   {
     id: 3,
@@ -61,8 +72,11 @@ const mapSpots: MapSpot[] = [
       "Hơn 20 kiosk sách liền kề nhau của các nhà xuất bản uy tín (Kim Đồng, Nhã Nam, Fahasa, Phương Nam...). Nơi bạn đọc tìm kiếm từ sách thiếu nhi, văn học đến tư liệu quý hiếm.",
     x: 52,
     y: 46,
-    photo: "/assets/hoa-si/image1.png",
-    photoCaption: "Dãy nhà sách gỗ xinh xắn dưới tán cây cổ thụ",
+    photo: "/assets/duong-sach/gian-hang-sach.webp",
+    photoAlt: "Bạn đọc chọn sách tại gian hàng Đông A trên Đường Sách Nguyễn Văn Bình",
+    photoCaption: "Gian hàng sách Đông A trên Đường Sách",
+    photoCredit: "Ảnh: Việt Nam News",
+    photoSource: "https://vietnamnews.vn/life-style/536512/vietnamese-publishers-honoured-at-book-street.html",
   },
   {
     id: 4,
@@ -86,8 +100,11 @@ const mapSpots: MapSpot[] = [
       "Khuôn viên ngoài trời thoáng đãng với những bộ bàn ghế gỗ mộc mạc, nơi bạn đọc có thể nhâm nhi ly cà phê, trò chuyện văn chương hay tham gia các buổi ra mắt sách cuối tuần.",
     x: 62,
     y: 60,
-    photo: "/assets/hoa-si/image2.png",
-    photoCaption: "Góc cà phê sách thư thái giữa lòng phố trung tâm",
+    photo: "/assets/duong-sach/dep-cafe.webp",
+    photoAlt: "Quán Đẹp Café với bàn ghế ngoài trời dưới mái che tại Đường Sách",
+    photoCaption: "Đẹp Café trong không gian Đường Sách",
+    photoCredit: "Ảnh: HCM City Guide",
+    photoSource: "https://www.hcm-cityguide.com/areas/maria-church/articles/614",
   },
   {
     id: 6,
@@ -95,11 +112,15 @@ const mapSpots: MapSpot[] = [
     subtitle: "Cửa ngõ phía Đông",
     tag: "Cửa ngõ đón khách",
     description:
-      "Cổng kết nối với tuyến đường Hai Bà Trưng sầm uất. Không gian ngập tràn sắc hoa và những dây cờ trang trí rực rỡ, khép lại hành trình 144m đầy cảm xúc của phố sách.",
+      "Đầu phía Đông của Đường Sách kết nối với tuyến đường Hai Bà Trưng sầm uất. Từ đây, bạn đọc có thể bước vào không gian đi bộ rợp bóng cây, khám phá các gian sách và điểm sinh hoạt văn hóa dọc phố.",
     x: 86,
     y: 77,
-    photo: "/assets/hoa-si/image4.png",
-    photoCaption: "Lối ra hướng Hai Bà Trưng rợp bóng mát cây xanh",
+    photo: "/assets/duong-sach/khong-gian-duong-sach.webp",
+    photoAlt: "Bạn đọc đi bộ giữa các gian sách và hàng cây trên Đường Sách Nguyễn Văn Bình",
+    photoCaption: "Không gian đi bộ trên Đường Sách Nguyễn Văn Bình",
+    photoCredit: "Ảnh: Kevin Rutherford / Wikimedia Commons",
+    photoSource: "https://commons.wikimedia.org/wiki/File:Nguyen_Van_Binh_Street_(52681309899).jpg",
+    photoLicense: { label: "CC BY-SA 2.0", url: "https://creativecommons.org/licenses/by-sa/2.0/" },
   },
 ];
 
@@ -435,20 +456,31 @@ export default function InteractiveBookStreetmap() {
 
             {/* Ô hình nhỏ được đưa vào trong khung chữ */}
             {activeSpot.photo && (
-              <div className="relative overflow-hidden rounded-xl border border-[#d6c7ab] shadow-sm flex-shrink-0 w-24 h-20 sm:w-32 sm:h-24 md:w-36 md:h-28">
-                <img
-                  src={activeSpot.photo}
-                  alt={activeSpot.title}
-                  className="w-full h-full object-cover"
-                />
-                {activeSpot.photoCaption && (
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-1">
-                    <span className="text-[8px] sm:text-[9px] text-white line-clamp-1 leading-tight">
-                      {activeSpot.photoCaption}
-                    </span>
-                  </div>
-                )}
-              </div>
+              <figure className="flex-shrink-0 w-24 sm:w-32 md:w-36">
+                <div className="overflow-hidden rounded-xl border border-[#d6c7ab] shadow-sm h-20 sm:h-24 md:h-28 bg-[#e8d8be]">
+                  <img
+                    key={activeSpot.photo}
+                    src={activeSpot.photo}
+                    alt={activeSpot.photoAlt ?? activeSpot.title}
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <figcaption className="mt-1 text-[9px] sm:text-[10px] leading-snug text-stone-600">
+                  {activeSpot.photoCaption}
+                  {activeSpot.photoSource && (
+                    <a href={activeSpot.photoSource} target="_blank" rel="noopener noreferrer" className="block mt-0.5 underline underline-offset-2 hover:text-[#A9324E]">
+                      {activeSpot.photoCredit}
+                    </a>
+                  )}
+                  {activeSpot.photoLicense && (
+                    <a href={activeSpot.photoLicense.url} target="_blank" rel="noopener noreferrer" className="block underline underline-offset-2 hover:text-[#A9324E]">
+                      {activeSpot.photoLicense.label} · ảnh thu nhỏ
+                    </a>
+                  )}
+                </figcaption>
+              </figure>
             )}
           </div>
         </div>

@@ -114,7 +114,7 @@ function TopBar() {
 
   const handleShare = () => {
     if (navigator.share) {
-      navigator.share({ title: "Họa sĩ Lê Phú", url: window.location.href }).catch(() => {});
+      navigator.share({ title: "Họa sĩ Lê Phú", url: window.location.href }).catch(() => { });
     } else {
       navigator.clipboard.writeText(window.location.href);
     }
@@ -122,17 +122,15 @@ function TopBar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#FAF2DE]/95 backdrop-blur-md shadow-sm border-b border-[#e0d0b0]"
-          : "bg-transparent"
-      }`}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+        ? "bg-[#FAF2DE]/95 backdrop-blur-md shadow-sm border-b border-[#e0d0b0]"
+        : "bg-transparent"
+        }`}
     >
       <div className="max-w-5xl mx-auto px-4 sm:px-5 h-14 flex items-center justify-between gap-3">
         <div
-          className={`flex items-center gap-2 min-w-0 transition-opacity duration-300 ${
-            scrolled ? "opacity-100" : "opacity-0"
-          }`}
+          className={`flex items-center gap-2 min-w-0 transition-opacity duration-300 ${scrolled ? "opacity-100" : "opacity-0"
+            }`}
         >
           <img
             src="/icon.svg"
@@ -147,11 +145,10 @@ function TopBar() {
         <div className="flex items-center gap-2 ml-auto flex-shrink-0">
           <a
             href="#binh-luan"
-            className={`flex items-center justify-center gap-1.5 text-xs min-h-[34px] min-w-[34px] sm:min-w-0 px-2.5 sm:px-3 py-1.5 rounded-full border transition-all touch-manipulation ${
-              scrolled
-                ? "bg-white/80 border-stone-300 text-stone-700 hover:bg-white"
-                : "bg-white/20 border-white/40 text-white hover:bg-white/30"
-            }`}
+            className={`flex items-center justify-center gap-1.5 text-xs min-h-[34px] min-w-[34px] sm:min-w-0 px-2.5 sm:px-3 py-1.5 rounded-full border transition-all touch-manipulation ${scrolled
+              ? "bg-white/80 border-stone-300 text-stone-700 hover:bg-white"
+              : "bg-white/20 border-white/40 text-white hover:bg-white/30"
+              }`}
             title="Bình luận"
           >
             <MessageSquare className="w-3.5 h-3.5" />
@@ -159,11 +156,10 @@ function TopBar() {
           </a>
           <button
             onClick={handleShare}
-            className={`flex items-center justify-center gap-1.5 text-xs min-h-[34px] min-w-[34px] sm:min-w-0 px-2.5 sm:px-3 py-1.5 rounded-full border transition-all cursor-pointer touch-manipulation ${
-              scrolled
-                ? "bg-white/80 border-stone-300 text-stone-700 hover:bg-white"
-                : "bg-white/20 border-white/40 text-white hover:bg-white/30"
-            }`}
+            className={`flex items-center justify-center gap-1.5 text-xs min-h-[34px] min-w-[34px] sm:min-w-0 px-2.5 sm:px-3 py-1.5 rounded-full border transition-all cursor-pointer touch-manipulation ${scrolled
+              ? "bg-white/80 border-stone-300 text-stone-700 hover:bg-white"
+              : "bg-white/20 border-white/40 text-white hover:bg-white/30"
+              }`}
             title="Chia sẻ bài viết"
           >
             <Share2 className="w-3.5 h-3.5" />
@@ -181,9 +177,8 @@ function FadeSection({ children, className = "" }: { children: React.ReactNode; 
   return (
     <div
       ref={ref}
-      className={`transition-all duration-700 ease-out ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-      } ${className}`}
+      className={`transition-all duration-700 ease-out ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+        } ${className}`}
     >
       {children}
     </div>
@@ -196,9 +191,8 @@ function PullQuote({ text }: { text: string }) {
   return (
     <div
       ref={ref}
-      className={`my-8 sm:my-10 px-2 sm:px-4 transition-all duration-700 ease-out ${
-        visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
-      }`}
+      className={`my-8 sm:my-10 px-2 sm:px-4 transition-all duration-700 ease-out ${visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4"
+        }`}
     >
       <blockquote className="relative border-l-4 border-[#A9324E] pl-4 sm:pl-5 py-1 font-serif text-base sm:text-xl md:text-2xl italic text-stone-800 leading-relaxed max-w-2xl">
         {text}
@@ -216,9 +210,8 @@ function ArticleImage({ src, caption, alt }: { src: string; caption: string; alt
   return (
     <div
       ref={ref}
-      className={`my-8 sm:my-10 transition-all duration-700 ease-out ${
-        visible ? "opacity-100 scale-100" : "opacity-0 scale-[0.98]"
-      }`}
+      className={`my-8 sm:my-10 transition-all duration-700 ease-out ${visible ? "opacity-100 scale-100" : "opacity-0 scale-[0.98]"
+        }`}
     >
       <div className="relative w-full overflow-hidden rounded-xl sm:rounded-2xl border border-[#e0d0b0] shadow-md sm:shadow-lg">
         <img src={src} alt={alt} className="w-full object-cover max-h-[580px]" />
@@ -238,9 +231,8 @@ function ChapterHeading({ title, icon }: { title: string; icon: React.ReactNode 
   return (
     <div
       ref={ref}
-      className={`flex items-center gap-2.5 sm:gap-3 my-6 sm:my-8 transition-all duration-600 ease-out ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-      }`}
+      className={`flex items-center gap-2.5 sm:gap-3 my-6 sm:my-8 transition-all duration-600 ease-out ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
+        }`}
     >
       <span className="flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#A9324E]/10 text-[#A9324E] flex items-center justify-center">
         {icon}
@@ -264,9 +256,8 @@ function StatRow() {
   return (
     <div
       ref={ref}
-      className={`grid grid-cols-3 gap-2 sm:gap-3 my-8 sm:my-10 transition-all duration-700 ease-out ${
-        visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-      }`}
+      className={`grid grid-cols-3 gap-2 sm:gap-3 my-8 sm:my-10 transition-all duration-700 ease-out ${visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+        }`}
     >
       {stats.map((s, i) => (
         <div
@@ -462,7 +453,7 @@ export default function HomePage() {
             </p>
             <p>
               <span className="italic">Thực hiện:</span>{" "}
-              <strong className="text-stone-800">Phóng sự văn hóa</strong>
+              <strong className="text-stone-800">Nguyễn Thị Thu Hiệp</strong>
             </p>
           </div>
         </FadeSection>
@@ -473,9 +464,6 @@ export default function HomePage() {
 
       {/* Footer */}
       <footer className="bg-[#ede1c7] border-t border-[#d6c7ab] py-10 px-5 text-xs text-stone-600 text-center mt-10">
-        <p className="font-semibold text-stone-800 mb-1">
-          Trang mô phỏng giao diện — Phóng sự văn hóa
-        </p>
         <p>Đường sách Nguyễn Văn Bình · TP. Hồ Chí Minh</p>
       </footer>
 
