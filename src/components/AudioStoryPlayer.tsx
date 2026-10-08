@@ -123,17 +123,17 @@ export default function AudioStoryPlayer({ className = "" }: AudioStoryPlayerPro
         {/* Use one row on desktop and a second progress row on mobile. */}
         <div className="contents">
           {/* Badge & Title */}
-          <div className="col-start-2 row-start-1 flex flex-col items-start gap-0.5 min-w-0">
+          <div className="col-start-2 row-start-1 flex flex-col items-center gap-0.5 min-w-0">
             <span className="inline-flex items-center gap-1 text-[10px] leading-3 font-bold uppercase tracking-wider text-white bg-[#A9324E] px-2 py-0.5 rounded-full shadow-xs flex-shrink-0">
               <Headphones className="w-3 h-3" />
               Bản tin audio
             </span>
-            <div className="flex items-center gap-1.5 min-w-0 max-w-full">
+            <div className="relative flex items-center justify-center min-w-0 max-w-full">
               <span className="text-xs leading-4 font-medium text-stone-100 truncate font-serif">
                 Họa sĩ Lê Phú
               </span>
               {isPlaying && (
-                <div className="flex items-center gap-0.5 h-3 flex-shrink-0">
+                <div className="absolute left-full ml-1 flex items-center gap-0.5 h-3">
                   <span className="w-0.5 h-2 bg-amber-300 rounded-full animate-pulse" />
                   <span className="w-0.5 h-3 bg-amber-300 rounded-full animate-bounce delay-75" />
                   <span className="w-0.5 h-1.5 bg-amber-300 rounded-full animate-pulse delay-150" />
