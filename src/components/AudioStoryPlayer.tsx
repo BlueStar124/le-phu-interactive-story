@@ -107,7 +107,7 @@ export default function AudioStoryPlayer({ className = "" }: AudioStoryPlayerPro
 
   return (
     <div
-      className={`relative w-full rounded-2xl bg-[#A9324E]/25 backdrop-blur-md border border-[#A9324E]/40 p-2.5 sm:p-3 text-white shadow-xl transition-all duration-300 hover:bg-[#A9324E]/35 hover:border-[#A9324E]/60 ${className}`}
+      className={`relative w-full rounded-2xl bg-black/30 backdrop-blur-md border border-white/20 p-2.5 sm:p-3 text-white shadow-xl transition-all duration-300 hover:bg-black/40 hover:border-white/35 ${className}`}
     >
       {/* Hidden audio element */}
       <audio
@@ -127,7 +127,7 @@ export default function AudioStoryPlayer({ className = "" }: AudioStoryPlayerPro
             <span className="flex-shrink-0 inline-flex items-center justify-center w-6 h-6 rounded-lg bg-[#A9324E] text-white shadow-xs border border-white/20">
               <Headphones className="w-3 h-3" />
             </span>
-            <span className="text-[10px] font-bold uppercase tracking-wider text-white bg-[#A9324E] px-2 py-0.5 rounded-full border border-pink-300/30 shadow-xs flex-shrink-0">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-white bg-[#A9324E] px-2 py-0.5 rounded-full shadow-xs flex-shrink-0">
               Bản tin audio
             </span>
             <span className="text-xs font-medium text-stone-100 truncate font-serif">
@@ -135,9 +135,9 @@ export default function AudioStoryPlayer({ className = "" }: AudioStoryPlayerPro
             </span>
             {isPlaying && (
               <div className="flex items-center gap-0.5 h-3 flex-shrink-0">
-                <span className="w-0.5 h-2 bg-pink-300 rounded-full animate-pulse" />
-                <span className="w-0.5 h-3 bg-pink-200 rounded-full animate-bounce delay-75" />
-                <span className="w-0.5 h-1.5 bg-pink-300 rounded-full animate-pulse delay-150" />
+                <span className="w-0.5 h-2 bg-amber-300 rounded-full animate-pulse" />
+                <span className="w-0.5 h-3 bg-amber-300 rounded-full animate-bounce delay-75" />
+                <span className="w-0.5 h-1.5 bg-amber-300 rounded-full animate-pulse delay-150" />
               </div>
             )}
           </div>
@@ -146,7 +146,7 @@ export default function AudioStoryPlayer({ className = "" }: AudioStoryPlayerPro
           <div className="flex items-center gap-1 flex-shrink-0">
             <button
               onClick={cycleSpeed}
-              className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-white/15 hover:bg-white/25 border border-white/20 text-white transition cursor-pointer touch-manipulation"
+              className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-white/10 hover:bg-white/20 border border-white/20 text-white transition cursor-pointer touch-manipulation"
               title="Tốc độ phát"
               aria-label={`Tốc độ phát ${playbackRate}x`}
             >
@@ -154,7 +154,7 @@ export default function AudioStoryPlayer({ className = "" }: AudioStoryPlayerPro
             </button>
             <button
               onClick={toggleMute}
-              className="p-1 rounded bg-white/15 hover:bg-white/25 border border-white/20 text-white transition cursor-pointer touch-manipulation"
+              className="p-1 rounded bg-white/10 hover:bg-white/20 border border-white/20 text-white transition cursor-pointer touch-manipulation"
               title={isMuted ? "Bật âm thanh" : "Tắt âm thanh"}
               aria-label={isMuted ? "Bật âm thanh" : "Tắt âm thanh"}
             >
@@ -169,7 +169,7 @@ export default function AudioStoryPlayer({ className = "" }: AudioStoryPlayerPro
           <button
             onClick={togglePlay}
             className={`flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center transition-all duration-200 cursor-pointer touch-manipulation shadow-md active:scale-95 bg-[#A9324E] hover:bg-[#8e243d] text-white ring-2 ring-white/30 ${
-              isPlaying ? "ring-pink-300/50" : ""
+              isPlaying ? "ring-amber-300/40" : ""
             }`}
             title={isPlaying ? "Tạm dừng" : "Nghe đọc phóng sự"}
             aria-label={isPlaying ? "Tạm dừng" : "Nghe đọc phóng sự"}
@@ -190,7 +190,7 @@ export default function AudioStoryPlayer({ className = "" }: AudioStoryPlayerPro
               title="Kéo hoặc nhấn để tua"
             >
               <div
-                className="h-full bg-gradient-to-r from-pink-300 to-[#A9324E] rounded-full relative transition-[width] duration-75"
+                className="h-full bg-gradient-to-r from-amber-400 to-[#A9324E] rounded-full relative transition-[width] duration-75"
                 style={{ width: `${progressPercent}%` }}
               >
                 <span className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-1/2 w-3 h-3 bg-white ring-2 ring-[#A9324E] rounded-full shadow-md group-hover:scale-125 transition-transform" />
@@ -198,13 +198,13 @@ export default function AudioStoryPlayer({ className = "" }: AudioStoryPlayerPro
             </div>
 
             {/* Time labels */}
-            <div className="flex items-center justify-between text-[10px] text-pink-100/90 font-mono">
+            <div className="flex items-center justify-between text-[10px] text-stone-200 font-mono">
               <span>{formatTime(currentTime)}</span>
               <div className="flex items-center gap-1.5">
                 {currentTime > 0 && (
                   <button
                     onClick={handleRestart}
-                    className="hover:text-white transition text-[9px] flex items-center gap-0.5 cursor-pointer font-sans"
+                    className="hover:text-amber-300 transition text-[9px] flex items-center gap-0.5 cursor-pointer font-sans"
                     title="Nghe lại từ đầu"
                   >
                     <RotateCcw className="w-2 h-2" />

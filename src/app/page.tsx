@@ -101,9 +101,11 @@ function Hero() {
           <span>Phóng sự ảnh</span>
         </div>
 
-        {/* Voice Player: Bản tin audio (gọn gàng, căn giữa) */}
-        <div className="mt-5 sm:mt-6 w-full max-w-md mx-auto flex justify-center">
-          <AudioStoryPlayer />
+        {/* Voice Player: Bản tin audio (căn giữa hoàn toàn) */}
+        <div className="w-full flex justify-center mt-6 sm:mt-8">
+          <div className="w-full max-w-md">
+            <AudioStoryPlayer />
+          </div>
         </div>
       </div>
     </section>
