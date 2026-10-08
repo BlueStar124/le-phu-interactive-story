@@ -107,7 +107,7 @@ export default function AudioStoryPlayer({ className = "" }: AudioStoryPlayerPro
 
   return (
     <div
-      className={`relative w-full rounded-2xl bg-black/30 backdrop-blur-md border border-white/20 p-2.5 sm:p-3 text-white shadow-xl transition-all duration-300 hover:bg-black/40 hover:border-white/35 ${className}`}
+      className={`relative w-full rounded-2xl bg-black/10 backdrop-blur-sm border border-white/20 p-2.5 sm:p-3 text-white shadow-lg transition-all duration-300 hover:bg-black/15 hover:border-white/35 ${className}`}
     >
       {/* Hidden audio element */}
       <audio
