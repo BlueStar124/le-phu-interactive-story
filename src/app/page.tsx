@@ -4,6 +4,8 @@ import React, { useState, useEffect, useRef } from "react";
 import { MessageSquare, Share2, BookOpen, Pencil, Cpu } from "lucide-react";
 import Comments from "@/components/Comments";
 import InteractiveBookStreetmap from "@/components/InteractiveBookStreetmap";
+import AudioStoryPlayer from "@/components/AudioStoryPlayer";
+import ArticleVideo from "@/components/ArticleVideo";
 
 // ─── Fade-in-on-scroll hook ───────────────────────────────────────────
 function useFadeIn(threshold = 0.05) {
@@ -58,7 +60,7 @@ function Hero() {
   return (
     <section
       ref={containerRef}
-      className="relative w-full h-[88vh] min-h-[480px] sm:min-h-[520px] overflow-hidden"
+      className="relative w-full min-h-[92vh] sm:min-h-[620px] overflow-hidden flex flex-col justify-end"
     >
       {/* Background image with parallax */}
       <div
@@ -70,11 +72,11 @@ function Hero() {
           alt="Đường sách Nguyễn Văn Bình"
           className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/50 to-black/20" />
       </div>
 
       {/* Text overlay */}
-      <div className="relative z-10 h-full flex flex-col justify-end px-4 sm:px-10 md:px-20 pb-10 sm:pb-14 max-w-5xl mx-auto">
+      <div className="relative z-10 w-full flex flex-col justify-end px-4 sm:px-10 md:px-20 pt-20 pb-8 sm:pb-12 max-w-5xl mx-auto">
         <div className="inline-flex items-center gap-2 mb-2.5 animate-fade-in">
           <img
             src="/icon.svg"
@@ -83,7 +85,7 @@ function Hero() {
           />
           <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-widest text-amber-400">
             <BookOpen className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
-            Văn hóa · Nghệ thuật
+            Nguyễn Thị Thu Hiệp
           </span>
         </div>
         <h1 className="font-serif text-2xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-3 sm:mb-4 drop-shadow-lg">
@@ -93,10 +95,15 @@ function Hero() {
         <p className="text-stone-200 text-sm sm:text-xl leading-relaxed max-w-2xl font-light">
           Giữa nhịp sống hối hả của Thành phố và sự bùng nổ của AI, tại Đường sách Nguyễn Văn Bình vẫn có một góc yên bình — nơi từng nét bút chì than kết nối những tâm hồn du khách.
         </p>
-        <div className="flex items-center gap-3 mt-4 sm:mt-6 text-[11px] sm:text-xs text-stone-400">
+        <div className="flex items-center gap-3 mt-3 sm:mt-4 text-[11px] sm:text-xs text-stone-400">
           <span>Đường sách Nguyễn Văn Bình, TP. Hồ Chí Minh</span>
           <span>·</span>
           <span>Phóng sự ảnh</span>
+        </div>
+
+        {/* Voice Player: Bản tin audio (gọn gàng, căn giữa) */}
+        <div className="mt-5 sm:mt-6 w-full max-w-md mx-auto flex justify-center">
+          <AudioStoryPlayer />
         </div>
       </div>
     </section>
@@ -362,6 +369,11 @@ export default function HomePage() {
 
       {/* ── Article body tiếp tục ── */}
       <article className="max-w-[700px] mx-auto px-4 sm:px-6">
+        {/* Video phóng sự tài liệu */}
+        <FadeSection>
+          <ArticleVideo />
+        </FadeSection>
+
         {/* ─ Chapter 1 ─ */}
         <ChapterHeading
           title="Nhịp sống phố sách và nốt trầm mang tên Lê Phú"
@@ -471,3 +483,4 @@ export default function HomePage() {
     </main>
   );
 }
+
