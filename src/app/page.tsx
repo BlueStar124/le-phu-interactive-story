@@ -76,7 +76,7 @@ function Hero() {
       </div>
 
       {/* Text overlay */}
-      <div className="relative z-10 w-full flex flex-col justify-end px-4 sm:px-10 md:px-20 pt-20 pb-8 sm:pb-12 max-w-5xl mx-auto">
+      <div className="relative z-10 w-full flex flex-col justify-end px-4 sm:px-10 md:px-20 pt-20 max-w-5xl mx-auto">
         <div className="inline-flex items-center gap-2 mb-2.5 animate-fade-in">
           <img
             src="/icon.svg"
@@ -100,11 +100,11 @@ function Hero() {
           <span>·</span>
           <span>Phóng sự ảnh</span>
         </div>
+      </div>
 
-        {/* Voice Player: Bản tin audio / Giọng đọc phóng sự */}
-        <div className="w-full max-w-xl mx-auto mt-4 sm:mt-5">
-          <AudioStoryPlayer />
-        </div>
+      {/* Match the article's width and horizontal padding. */}
+      <div className="relative z-10 w-full max-w-[700px] mx-auto px-4 sm:px-6 mt-4 sm:mt-5 pb-8 sm:pb-12">
+        <AudioStoryPlayer />
       </div>
     </section>
   );

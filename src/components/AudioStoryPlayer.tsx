@@ -107,7 +107,7 @@ export default function AudioStoryPlayer({ className = "" }: AudioStoryPlayerPro
 
   return (
     <div
-      className={`relative w-full rounded-2xl bg-black/10 backdrop-blur-sm border border-white/20 p-2.5 sm:p-3 text-white shadow-lg transition-all duration-300 hover:bg-black/15 hover:border-white/35 ${className}`}
+      className={`relative w-full rounded-xl bg-black/10 backdrop-blur-sm border border-white/20 px-3 py-2 text-white shadow-lg transition-all duration-300 hover:bg-black/15 hover:border-white/35 ${className}`}
     >
       {/* Hidden audio element */}
       <audio
@@ -119,34 +119,34 @@ export default function AudioStoryPlayer({ className = "" }: AudioStoryPlayerPro
         onEnded={handleEnded}
       />
 
-      <div className="flex flex-col gap-2">
-        {/* Top header row: compact info + controls */}
-        <div className="flex items-center justify-between gap-2">
+      <div className="grid grid-cols-[auto_minmax(0,1fr)_auto] sm:grid-cols-[auto_auto_minmax(0,1fr)_auto] items-center gap-x-3 gap-y-1.5">
+        {/* Use one row on desktop and a second progress row on mobile. */}
+        <div className="contents">
           {/* Badge & Title */}
-          <div className="flex items-center gap-2 min-w-0">
-            <span className="flex-shrink-0 inline-flex items-center justify-center w-6 h-6 rounded-lg bg-[#A9324E] text-white shadow-xs border border-white/20">
+          <div className="col-start-2 row-start-1 flex flex-col items-start gap-0.5 min-w-0">
+            <span className="inline-flex items-center gap-1 text-[10px] leading-3 font-bold uppercase tracking-wider text-white bg-[#A9324E] px-2 py-0.5 rounded-full shadow-xs flex-shrink-0">
               <Headphones className="w-3 h-3" />
-            </span>
-            <span className="text-[10px] font-bold uppercase tracking-wider text-white bg-[#A9324E] px-2 py-0.5 rounded-full shadow-xs flex-shrink-0">
               Bản tin audio
             </span>
-            <span className="text-xs font-medium text-stone-100 truncate font-serif">
-              Họa sĩ Lê Phú
-            </span>
-            {isPlaying && (
-              <div className="flex items-center gap-0.5 h-3 flex-shrink-0">
-                <span className="w-0.5 h-2 bg-amber-300 rounded-full animate-pulse" />
-                <span className="w-0.5 h-3 bg-amber-300 rounded-full animate-bounce delay-75" />
-                <span className="w-0.5 h-1.5 bg-amber-300 rounded-full animate-pulse delay-150" />
-              </div>
-            )}
+            <div className="flex items-center gap-1.5 min-w-0 max-w-full">
+              <span className="text-xs leading-4 font-medium text-stone-100 truncate font-serif">
+                Họa sĩ Lê Phú
+              </span>
+              {isPlaying && (
+                <div className="flex items-center gap-0.5 h-3 flex-shrink-0">
+                  <span className="w-0.5 h-2 bg-amber-300 rounded-full animate-pulse" />
+                  <span className="w-0.5 h-3 bg-amber-300 rounded-full animate-bounce delay-75" />
+                  <span className="w-0.5 h-1.5 bg-amber-300 rounded-full animate-pulse delay-150" />
+                </div>
+              )}
+            </div>
           </div>
 
           {/* Controls: Speed + Mute */}
-          <div className="flex items-center gap-1 flex-shrink-0">
+          <div className="col-start-3 sm:col-start-4 row-start-1 flex items-center gap-1 flex-shrink-0">
             <button
               onClick={cycleSpeed}
-              className="text-[10px] font-semibold px-1.5 py-0.5 rounded bg-white/10 hover:bg-white/20 border border-white/20 text-white transition cursor-pointer touch-manipulation"
+              className="min-w-7 h-7 text-[10px] font-semibold px-1 rounded bg-white/10 hover:bg-white/20 border border-white/20 text-white transition cursor-pointer touch-manipulation"
               title="Tốc độ phát"
               aria-label={`Tốc độ phát ${playbackRate}x`}
             >
@@ -154,7 +154,7 @@ export default function AudioStoryPlayer({ className = "" }: AudioStoryPlayerPro
             </button>
             <button
               onClick={toggleMute}
-              className="p-1 rounded bg-white/10 hover:bg-white/20 border border-white/20 text-white transition cursor-pointer touch-manipulation"
+              className="w-7 h-7 flex items-center justify-center rounded bg-white/10 hover:bg-white/20 border border-white/20 text-white transition cursor-pointer touch-manipulation"
               title={isMuted ? "Bật âm thanh" : "Tắt âm thanh"}
               aria-label={isMuted ? "Bật âm thanh" : "Tắt âm thanh"}
             >
@@ -163,12 +163,11 @@ export default function AudioStoryPlayer({ className = "" }: AudioStoryPlayerPro
           </div>
         </div>
 
-        {/* Bottom player controls row: Play button + Progress + Time */}
-        <div className="flex items-center gap-2.5">
+        <div className="contents">
           {/* Compact Play / Pause button with brand burgundy #A9324E */}
           <button
             onClick={togglePlay}
-            className={`flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center transition-all duration-200 cursor-pointer touch-manipulation shadow-md active:scale-95 bg-[#A9324E] hover:bg-[#8e243d] text-white ring-2 ring-white/30 ${
+            className={`col-start-1 row-start-1 row-span-2 sm:row-span-1 flex-shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center transition-all duration-200 cursor-pointer touch-manipulation shadow-md active:scale-95 bg-[#A9324E] hover:bg-[#8e243d] text-white ring-2 ring-white/30 ${
               isPlaying ? "ring-amber-300/40" : ""
             }`}
             title={isPlaying ? "Tạm dừng" : "Nghe đọc phóng sự"}
@@ -182,11 +181,11 @@ export default function AudioStoryPlayer({ className = "" }: AudioStoryPlayerPro
           </button>
 
           {/* Progress bar and time */}
-          <div className="flex-1 flex flex-col gap-1 min-w-0">
+          <div className="col-start-2 col-span-2 row-start-2 sm:col-start-3 sm:col-span-1 sm:row-start-1 flex flex-col gap-1 min-w-0">
             <div
               ref={progressTrackRef}
               onClick={handleSeek}
-              className="group relative h-2 bg-white/20 hover:bg-white/30 rounded-full cursor-pointer flex items-center transition-colors"
+              className="group relative h-1.5 bg-white/20 hover:bg-white/30 rounded-full cursor-pointer flex items-center transition-colors"
               title="Kéo hoặc nhấn để tua"
             >
               <div
@@ -198,7 +197,7 @@ export default function AudioStoryPlayer({ className = "" }: AudioStoryPlayerPro
             </div>
 
             {/* Time labels */}
-            <div className="flex items-center justify-between text-[10px] text-stone-200 font-mono">
+            <div className="flex items-center justify-between text-[10px] leading-3 text-stone-200 font-mono">
               <span>{formatTime(currentTime)}</span>
               <div className="flex items-center gap-1.5">
                 {currentTime > 0 && (
