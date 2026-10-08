@@ -83,7 +83,7 @@ function Hero() {
             alt="Logo"
             className="w-5 h-5 sm:w-6 sm:h-6 rounded-md shadow"
           />
-          <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-widest text-amber-400">
+          <span className="inline-flex items-center gap-1.5 text-[11px] sm:text-xs font-bold uppercase tracking-widest text-white [text-shadow:0_1px_3px_rgba(0,0,0,0.85)]">
             <BookOpen className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
             Nguyễn Thị Thu Hiệp
           </span>
